@@ -1,11 +1,7 @@
 {
-    "name": "sofa/hookable",
+    "name": "fattureincloud/eloquence-hookable",
     "description": "Laravel Eloquent hooks system.",
     "license": "MIT",
-    "support": {
-        "issues": "https://github.com/jarektkaczyk/hookable/issues",
-        "source": "https://github.com/jarektkaczyk/hookable"
-    },
     "keywords": ["eloquent", "laravel"],
     "authors": [
         {
