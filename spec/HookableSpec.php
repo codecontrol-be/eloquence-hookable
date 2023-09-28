@@ -31,7 +31,7 @@ describe('Sofa\Hookable\Hookable', function () {
         $reflectedProperty->setAccessible(true);
 
         $hooks = $reflectedProperty->getValue();
-        expect($hooks)->toHaveLength(2);
+        expect($hooks[$reflectedClass->getName()])->toHaveLength(2);
 
         $hookableClass::flushHooks();
 
