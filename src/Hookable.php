@@ -26,7 +26,7 @@ trait Hookable
      */
     public static function hook($method, Closure $hook)
     {
-        static::$hooks[$method][] = $hook;
+        static::$hooks[static::class][$method][] = $hook;
     }
 
     /**
@@ -257,7 +257,7 @@ trait Hookable
      */
     protected function boundHooks($method)
     {
-        $hooks = isset(static::$hooks[$method]) ? static::$hooks[$method] : [];
+        $hooks = isset(static::$hooks[static::class][$method]) ? static::$hooks[static::class][$method] : [];
 
         return array_map(function ($hook) {
             return $hook->bindTo($this, get_class($this));
