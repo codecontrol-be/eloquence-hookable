@@ -25,16 +25,6 @@ class Builder extends EloquentBuilder
         'not similar to', 'not ilike', '~~*', '!~~*',
     ];
 
-    /**
-     * The methods that should be returned from query builder.
-     *
-     * @var array
-     */
-    protected $passthru = [
-        'toSql', 'lists', 'insert', 'insertGetId', 'pluck', 'value', 'count', 'raw', 'min', 'max',
-        'avg', 'sum', 'exists', 'doesntExist', 'getBindings', 'aggregate', 'getConnection'
-    ];
-
     /*
     |--------------------------------------------------------------------------
     | Hooks handling
@@ -50,6 +40,7 @@ class Builder extends EloquentBuilder
      */
     public function callParent($method, array $args)
     {
+        var_dump(parent::class);
         return parent::$method(...array_values($args));
     }
 
