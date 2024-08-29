@@ -1,15 +1,15 @@
 <?php
 
-use kahlan\plugin\Stub;
+use Kahlan\Plugin\Double;
 use Sofa\Hookable\Hookable;
 
 describe('Sofa\Hookable\Hookable', function () {
 
     it('resolves hooks in instance scope', function () {
-        $parent = Stub::classname();
-        Stub::on($parent)->method('getAttribute', function () { return 'value'; });
+        $parent = Double::classname();
+        allow($parent)->toReceive('getAttribute')->andReturn('value');
 
-        $hookableClass = Stub::classname(['uses' => Hookable::class, 'extends' => $parent]);
+        $hookableClass = Double::classname(['uses' => Hookable::class, 'extends' => $parent]);
         $hookableClass::hook('getAttribute', function ($next, $value, $args) {
             $this->instanceMethod();
         });
@@ -20,9 +20,9 @@ describe('Sofa\Hookable\Hookable', function () {
     });
 
     it('flushes all hooks with the flushHooks method', function () {
-        $parent = Stub::classname();
+        $parent = Double::classname();
 
-        $hookableClass = Stub::classname(['uses' => Hookable::class, 'extends' => $parent]);
+        $hookableClass = Double::classname(['uses' => Hookable::class, 'extends' => $parent]);
         $hookableClass::hook('method1', function ($next, $value, $args) {});
         $hookableClass::hook('method2', function ($next, $value, $args) {});
 

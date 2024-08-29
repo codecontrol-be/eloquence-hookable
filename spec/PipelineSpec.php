@@ -1,6 +1,6 @@
 <?php
 
-use kahlan\plugin\Stub;
+use Kahlan\Plugin\Double;
 use Sofa\Hookable\Pipeline;
 
 describe('\Sofa\Hookable\Pipeline', function () {
@@ -43,11 +43,11 @@ describe('\Sofa\Hookable\Pipeline', function () {
         };
         $pipeline = new Pipeline($pipes);
 
-        $args = Stub::create(['implements' => ['Sofa\Hookable\Contracts\ArgumentBag']]);
-        Stub::on($args)->method('get')->andReturn('bar', 'bar');
+        $args = Double::instance(['implements' => ['Sofa\Hookable\Contracts\ArgumentBag']]);
+        allow($args)->toReceive('get')->andReturn('bar', 'bar');
 
         expect($args)->toReceive('get');
-        expect($args)->toReceiveNext('get');
+        expect($args)->toReceive('get');
         $result = $pipeline->send($payload)->with($args)->to($destination);
         expect($result)->toBe('start,pipe-bar,end-bar');
     });

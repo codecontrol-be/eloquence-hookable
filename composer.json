@@ -2,7 +2,10 @@
     "name": "fattureincloud/eloquence-hookable",
     "description": "Laravel Eloquent hooks system.",
     "license": "MIT",
-    "keywords": ["eloquent", "laravel"],
+    "keywords": [
+        "eloquent",
+        "laravel"
+    ],
     "authors": [
         {
             "name": "Jarek Tkaczyk",
@@ -12,11 +15,11 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "illuminate/database": ">=5.4"
+        "php": ">=8.0",
+        "illuminate/database": ">=8.0"
     },
     "require-dev": {
-        "kahlan/kahlan": "~1.1"
+        "kahlan/kahlan": "^5.2"
     },
     "autoload": {
         "psr-4": {
