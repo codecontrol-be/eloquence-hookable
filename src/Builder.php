@@ -40,7 +40,6 @@ class Builder extends EloquentBuilder
      */
     public function callParent($method, array $args)
     {
-        var_dump(parent::class);
         return parent::$method(...array_values($args));
     }
 
